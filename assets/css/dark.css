@@ -1,0 +1,53 @@
+/* 
+ * Ferry & Boat Booking - Dark Mode Styles
+ * Background: #020617 (Slate 950)
+ * Surface: #020617 / #0F172A
+ */
+
+html.dark-mode {
+    --background: #020617;
+    --surface: #0F172A;
+    --surface-transparent: rgba(15, 23, 42, 0.8);
+    --text-primary: #F8FAFC;
+    --text-secondary: #CBD5E1;
+    --border: #1E293B;
+
+    /* Glassmorphism Dark */
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    /* 8% opacity for dark mode */
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+html.dark-mode .navbar-custom {
+    background: rgba(2, 6, 23, 0.8);
+    border-bottom-color: var(--border);
+}
+
+html.dark-mode .form-control-custom {
+    background-color: #1E293B;
+    border-color: #334155;
+    color: var(--text-primary);
+}
+
+html.dark-mode .form-control-custom::placeholder {
+    color: #64748B;
+}
+
+html.dark-mode .footer {
+    background-color: #0F172A;
+    border-top-color: #1E293B;
+}
+
+html.dark-mode .btn-secondary-custom {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+html.dark-mode .btn-secondary-custom:hover {
+    color: #fff;
+}
+
+/* Ensure icons and other elements contrast well */
+html.dark-mode .text-muted {
+    color: #94A3B8 !important;
+}

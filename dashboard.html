@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - FerryBolt Manager</title>
+
+    <!-- CSS Dependencies -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+
+    <style>
+        /* Force visibility in case animations fail */
+        .glass-card {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        .stat-card {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        .dashboard-wrapper {
+            display: flex;
+            min-height: 100vh;
+            padding-top: 72px;
+        }
+
+        @media (max-width: 991px) {
+            .dashboard-main {
+                margin-left: 0 !important;
+            }
+
+            .dashboard-sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .dashboard-sidebar.show {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-tsunami"></i> FerryBolt
+            </a>
+            <button class="navbar-toggler border-0" type="button" id="sidebar-toggle-btn">
+                <i class="bi bi-list fs-2"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="routes.html">Routes</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="dashboard.html">Dashboard</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3 ms-lg-4">
+                    <button id="theme-toggle" class="btn btn-link text-primary p-0 border-0" aria-label="Toggle Theme">
+                        <i class="bi bi-moon-fill"></i>
+                    </button>
+                    <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center gap-2 text-decoration-none text-body"
+                            data-bs-toggle="dropdown">
+                            <img src="https://ui-avatars.com/api/?name=Admin+User&background=0EA5E9&color=fff"
+                                alt="Avatar" class="rounded-circle" width="32">
+                            <span class="fw-semibold d-none d-sm-inline">Admin</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2">
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i> Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i> Settings</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-danger" href="login.html"><i
+                                        class="bi bi-box-arrow-right me-2"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar" id="dashboard-sidebar">
+            <nav class="nav flex-column">
+                <a class="sidebar-nav-link active" href="#"><i class="bi bi-speedometer2"></i> Overview</a>
+                <a class="sidebar-nav-link" href="#sales-section"><i class="bi bi-ticket-perforated"></i> Ticket
+                    Sales</a>
+                <a class="sidebar-nav-link" href="#schedule-section"><i class="bi bi-calendar3"></i> Schedule
+                    Manager</a>
+                <a class="sidebar-nav-link" href="#"><i class="bi bi-ship"></i> Vessel Fleet</a>
+                <a class="sidebar-nav-link" href="#"><i class="bi bi-people"></i> Customers</a>
+                <hr class="my-4 opacity-10">
+                <a class="sidebar-nav-link" href="#"><i class="bi bi-gear"></i> Settings</a>
+                <a class="sidebar-nav-link text-danger mt-5" href="login.html"><i class="bi bi-box-arrow-right"></i>
+                    Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <div class="container-fluid">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="h3 mb-0">Dashboard Overview</h2>
+                    <button class="btn btn-primary-custom btn-sm" onclick="alert('Add Route form would open here')">
+                        <i class="bi bi-plus-lg me-2"></i> Add Route
+                    </button>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="row g-4 mb-5">
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="stat-card">
+                            <div class="stat-icon bg-primary-soft"><i class="bi bi-currency-dollar"></i></div>
+                            <h6 class="text-secondary small fw-bold text-uppercase mb-1">Total Revenue</h6>
+                            <h3 class="mb-0 fw-bold">$24,580</h3>
+                            <p class="text-success small mt-2 mb-0"><i class="bi bi-arrow-up"></i> 12.5% vs last month
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="stat-card">
+                            <div class="stat-icon bg-success-soft"><i class="bi bi-ticket-detailed"></i></div>
+                            <h6 class="text-secondary small fw-bold text-uppercase mb-1">Tickets Sold</h6>
+                            <h3 class="mb-0 fw-bold">1,245</h3>
+                            <p class="text-success small mt-2 mb-0"><i class="bi bi-arrow-up"></i> 8.2% vs last month
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="stat-card">
+                            <div class="stat-icon bg-warning-soft"><i class="bi bi-clock-history"></i></div>
+                            <h6 class="text-secondary small fw-bold text-uppercase mb-1">Active Routes</h6>
+                            <h3 class="mb-0 fw-bold">18</h3>
+                            <p class="text-secondary small mt-2 mb-0">Across 12 island ports</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="stat-card">
+                            <div class="stat-icon bg-info-soft"
+                                style="background: rgba(13, 202, 240, 0.1); color: #0dcaf0;">
+                                <i class="bi bi-ship"></i>
+                            </div>
+                            <h6 class="text-secondary small fw-bold text-uppercase mb-1">Fleet Status</h6>
+                            <h3 class="mb-0 fw-bold">95%</h3>
+                            <p class="text-success small mt-2 mb-0">Operational efficiency</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Sections -->
+                <div class="row g-4 mb-5">
+                    <!-- Ticket Sales -->
+                    <div id="sales-section" class="col-xl-8">
+                        <div class="glass-card p-4 h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h4 class="h5 mb-0">Recent Ticket Sales</h4>
+                                <button class="btn btn-sm btn-link text-primary text-decoration-none">View All</button>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle">
+                                    <thead>
+                                        <tr class="text-secondary small text-uppercase">
+                                            <th>ID</th>
+                                            <th>Customer</th>
+                                            <th>Route</th>
+                                            <th>Date</th>
+                                            <th>Amount</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="small">
+                                        <tr>
+                                            <td class="fw-bold">#TK-8812</td>
+                                            <td>Alex Johnson</td>
+                                            <td>Port A &rarr; Island B</td>
+                                            <td>Oct 24, 2023</td>
+                                            <td class="fw-bold">$45.00</td>
+                                            <td><span
+                                                    class="badge bg-success bg-opacity-10 text-success">Confirmed</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">#TK-8811</td>
+                                            <td>Maria Garcia</td>
+                                            <td>City Port &rarr; Peninsula</td>
+                                            <td>Oct 24, 2023</td>
+                                            <td class="fw-bold">$25.00</td>
+                                            <td><span
+                                                    class="badge bg-success bg-opacity-10 text-success">Confirmed</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">#TK-8810</td>
+                                            <td>Tom Brown</td>
+                                            <td>Harbor C &rarr; City D</td>
+                                            <td>Oct 23, 2023</td>
+                                            <td class="fw-bold">$72.00</td>
+                                            <td><span class="badge bg-warning bg-opacity-10 text-warning">Pending</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">#TK-8809</td>
+                                            <td>Lisa Wong</td>
+                                            <td>Port A &rarr; Island B</td>
+                                            <td>Oct 23, 2023</td>
+                                            <td class="fw-bold">$45.00</td>
+                                            <td><span
+                                                    class="badge bg-success bg-opacity-10 text-success">Confirmed</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">#TK-8808</td>
+                                            <td>James Wilson</td>
+                                            <td>Harbor C &rarr; City D</td>
+                                            <td>Oct 22, 2023</td>
+                                            <td class="fw-bold">$144.00</td>
+                                            <td><span
+                                                    class="badge bg-success bg-opacity-10 text-success">Confirmed</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">#TK-8807</td>
+                                            <td>Emma Davis</td>
+                                            <td>Mainland &rarr; Island E</td>
+                                            <td>Oct 22, 2023</td>
+                                            <td class="fw-bold">$30.00</td>
+                                            <td><span class="badge bg-danger bg-opacity-10 text-danger">Cancelled</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insights -->
+                    <div class="col-xl-4">
+                        <div class="glass-card p-4 h-100">
+                            <h4 class="h5 mb-4">Quick Insights</h4>
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="small text-secondary fw-semibold">Ocean Drive Route</span>
+                                    <span class="small fw-bold">85% Capacity</span>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-primary" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="small text-secondary fw-semibold">Island Hopper Express</span>
+                                    <span class="small fw-bold">62% Capacity</span>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-primary" style="width: 62%"></div>
+                                </div>
+                            </div>
+                            <div class="mt-5 p-3 rounded bg-primary-soft text-center">
+                                <p class="small mb-1 text-primary fw-bold">Action Required</p>
+                                <p class="small mb-0">3 vessel maintenance tasks due this week.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Schedule Manager -->
+                <div id="schedule-section" class="row mb-5">
+                    <div class="col-12">
+                        <div class="glass-card p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h4 class="h5 mb-0">Schedule Manager</h4>
+                                <div class="d-flex gap-2">
+                                    <input type="text" class="form-control form-control-sm"
+                                        placeholder="Filter routes...">
+                                    <button class="btn btn-sm btn-primary-custom"
+                                        onclick="alert('Update all schedules?')">Update</button>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle">
+                                    <thead>
+                                        <tr class="text-secondary small text-uppercase">
+                                            <th>Route Name</th>
+                                            <th>Departure</th>
+                                            <th>Arrival</th>
+                                            <th>Vessel</th>
+                                            <th>Days</th>
+                                            <th>Status</th>
+                                            <th class="text-end">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="small">
+                                        <tr>
+                                            <td class="fw-bold">Port A to Island B</td>
+                                            <td>09:00 AM</td>
+                                            <td>11:30 AM</td>
+                                            <td>BlueWave 1</td>
+                                            <td>Daily</td>
+                                            <td><span class="badge bg-success bg-opacity-10 text-success">Active</span>
+                                            </td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-link p-1" onclick="alert('Edit Route')"><i
+                                                        class="bi bi-pencil"></i></button>
+                                                <button class="btn btn-sm btn-link p-1 text-danger"
+                                                    onclick="confirm('Delete route?')"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Harbor C to City D</td>
+                                            <td>10:00 AM</td>
+                                            <td>02:15 PM</td>
+                                            <td>SeaLink Exp</td>
+                                            <td>M/W/F</td>
+                                            <td><span class="badge bg-success bg-opacity-10 text-success">Active</span>
+                                            </td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-link p-1"><i
+                                                        class="bi bi-pencil"></i></button>
+                                                <button class="btn btn-sm btn-link p-1 text-danger"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Port A to Island B</td>
+                                            <td>02:00 PM</td>
+                                            <td>04:30 PM</td>
+                                            <td>BlueWave 2</td>
+                                            <td>Daily</td>
+                                            <td><span class="badge bg-warning bg-opacity-10 text-warning">Delayed</span>
+                                            </td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-link p-1"><i
+                                                        class="bi bi-pencil"></i></button>
+                                                <button class="btn btn-sm btn-link p-1 text-danger"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Inline simple logic for immediate results
+        document.addEventListener('DOMContentLoaded', function () {
+            const sidebar = document.getElementById('dashboard-sidebar');
+            const toggleBtn = document.getElementById('sidebar-toggle-btn');
+
+            if (toggleBtn) {
+                toggleBtn.onclick = function () {
+                    sidebar.classList.toggle('show');
+                };
+            }
+
+            console.log("Dashboard loaded successfully");
+        });
+    </script>
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

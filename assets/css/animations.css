@@ -1,0 +1,43 @@
+/* 
+ * Animation Utility Classes 
+ * Powered by GSAP mostly, but here are some CSS basics
+ */
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Button pulse effect for CTA */
+@keyframes pulse-soft {
+    0% {
+        box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(14, 165, 233, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(14, 165, 233, 0);
+    }
+}
+
+.btn-pulse {
+    animation: pulse-soft 2s infinite;
+}
