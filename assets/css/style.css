@@ -454,6 +454,54 @@ html.dark-mode .hero-overlay {
     box-shadow: 0 8px 20px rgba(255, 0, 0, 0.3);
 }
 
+/* Accordion Custom */
+.accordion-custom .accordion-button:not(.collapsed) {
+    background-color: transparent;
+    color: var(--primary);
+    box-shadow: none;
+}
+
+.accordion-custom .accordion-button:focus {
+    box-shadow: none;
+    border-color: var(--primary-soft);
+}
+
+.accordion-custom .accordion-button::after {
+    filter: grayscale(1) brightness(0.5);
+}
+
+[data-bs-theme="dark"] .accordion-custom .accordion-button::after {
+    filter: invert(1) brightness(1);
+}
+
+/* Grayscale Partners */
+.grayscale {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.grayscale:hover {
+    filter: grayscale(0%);
+}
+
+.filter-invert-dark {
+    filter: brightness(0);
+}
+
+[data-bs-theme="dark"] .filter-invert-dark {
+    filter: invert(1) brightness(1);
+}
+
+/* Object Fit Utilities */
+.object-fit-cover {
+    object-fit: cover;
+}
+
+/* Italic class */
+.italic {
+    font-style: italic;
+}
+
 html.dark-mode .social-icon {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.1);

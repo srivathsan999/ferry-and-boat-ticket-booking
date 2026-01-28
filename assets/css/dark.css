@@ -51,3 +51,87 @@ html.dark-mode .btn-secondary-custom:hover {
 html.dark-mode .text-muted {
     color: #94A3B8 !important;
 }
+
+/* Dark mode for new sections */
+html.dark-mode .bg-light-subtle {
+    background-color: #0F172A !important;
+}
+
+/* Testimonial cards in dark mode */
+html.dark-mode .glass-card.border-primary {
+    border-color: var(--primary) !important;
+}
+
+/* Special Offers badges */
+html.dark-mode .badge.bg-danger,
+html.dark-mode .badge.bg-success,
+html.dark-mode .badge.bg-primary {
+    color: #fff !important;
+}
+
+/* Accordion dark mode */
+html.dark-mode .accordion-custom .accordion-button {
+    background-color: transparent;
+    color: var(--text-primary);
+}
+
+html.dark-mode .accordion-custom .accordion-button:not(.collapsed) {
+    color: var(--primary);
+}
+
+html.dark-mode .accordion-custom .accordion-body {
+    background-color: transparent;
+}
+
+/* App Store buttons in dark mode */
+html.dark-mode .btn-dark {
+    background-color: #1E293B;
+    border-color: #334155;
+    color: var(--text-primary);
+}
+
+html.dark-mode .btn-dark:hover {
+    background-color: #334155;
+    border-color: #475569;
+}
+
+/* Partner logos dark mode */
+html.dark-mode .filter-invert-dark {
+    filter: invert(1) brightness(1);
+}
+
+/* Loyalty program card dark mode */
+html.dark-mode .glass-card.bg-primary.bg-opacity-10 {
+    background-color: rgba(14, 165, 233, 0.05) !important;
+}
+
+/* Price strikethrough text */
+html.dark-mode .text-decoration-line-through {
+    color: #64748B !important;
+}
+
+/* Ensure all text-secondary is visible in dark mode */
+html.dark-mode .text-secondary {
+    color: var(--text-secondary) !important;
+}
+
+/* Star ratings visibility */
+html.dark-mode .text-warning {
+    color: #FCD34D !important;
+}
+
+/* Border opacity adjustments */
+html.dark-mode .border-secondary.border-opacity-10 {
+    border-color: rgba(148, 163, 184, 0.1) !important;
+}
+
+/* Ensure small text is readable */
+html.dark-mode .small,
+html.dark-mode small {
+    color: var(--text-secondary);
+}
+
+/* FAQ section heading */
+html.dark-mode .tracking-widest {
+    color: var(--text-secondary);
+}
