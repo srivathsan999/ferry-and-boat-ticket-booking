@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - FerryBolt</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="alternate icon" href="favicon.svg" type="image/svg+xml">
@@ -43,6 +44,16 @@
                                 <input type="password" class="form-control form-control-custom"
                                     placeholder="Create a password">
                             </div>
+                            <div class="mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="termsAgreement" required>
+                                    <label class="form-check-label small text-secondary" for="termsAgreement">
+                                        I agree to the <a href="#" class="text-primary text-decoration-none">Terms of
+                                            Service</a> & <a href="#" class="text-primary text-decoration-none">Privacy
+                                            Policy</a>
+                                    </label>
+                                </div>
+                            </div>
                             <div class="d-grid mb-3">
                                 <button type="submit" class="btn btn-primary-custom">Create Account</button>
                             </div>
@@ -55,10 +66,6 @@
                                 <button type="button" class="btn btn-outline-secondary w-50 btn-sm"><i
                                         class="bi bi-facebook"></i> Facebook</button>
                             </div>
-
-                            <p class="text-xs text-center text-secondary mb-4" style="font-size: 0.75rem;">
-                                By signing up, you agree to our Terms of Service and Privacy Policy.
-                            </p>
 
                             <div class="text-center small text-secondary">
                                 Already have an account? <a href="login.html"

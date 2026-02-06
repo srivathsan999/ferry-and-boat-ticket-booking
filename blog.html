@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ferry & Boat Ticket Booking - Blog</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="alternate icon" href="favicon.svg" type="image/svg+xml">
@@ -46,11 +47,19 @@
         </div>
     </nav>
 
-    <div class="container py-5 mt-5">
-        <div class="text-center mb-5 fade-up">
-            <h1 class="mb-3">Travel Stories</h1>
-            <p class="text-secondary">Inspiration for your next marine adventure.</p>
+    <!-- Page Header -->
+    <section class="hero-section" style="min-height: 40vh; padding-top: 6rem;">
+        <div class="hero-bg-wrapper">
+            <img src="assets/images/hero/hero-bg.png" alt="Blog" class="hero-bg">
+            <div class="hero-overlay"></div>
         </div>
+        <div class="container hero-content text-center">
+            <h1 class="display-4">Travel Stories</h1>
+            <p class="lead">Inspiration for your next marine adventure.</p>
+        </div>
+    </section>
+
+    <div class="container py-5">
 
         <div class="row g-4 stagger-list">
             <!-- Article 1 -->
@@ -94,7 +103,8 @@
                         style="height: 200px; width: 100%; object-fit: cover;">
                     <div class="p-4">
                         <div class="small text-primary fw-bold mb-2">Lifestyle</div>
-                        <h4 class="mb-3"><a href="blog-details-3.html" class="text-decoration-none text-reset">The Digital
+                        <h4 class="mb-3"><a href="blog-details-3.html" class="text-decoration-none text-reset">The
+                                Digital
                                 Nomad's Guide to Ferries</a></h4>
                         <p class="text-secondary small mb-4">How to stay productive while crossing the ocean. Best
                             routes with WiFi and quiet zones...</p>
@@ -111,9 +121,11 @@
                         style="height: 200px; width: 100%; object-fit: cover;">
                     <div class="p-4">
                         <div class="small text-primary fw-bold mb-2">Adventure</div>
-                        <h4 class="mb-3"><a href="blog-details-4.html" class="text-decoration-none text-reset">Best Time to
+                        <h4 class="mb-3"><a href="blog-details-4.html" class="text-decoration-none text-reset">Best Time
+                                to
                                 Book Ferry Tickets</a></h4>
-                        <p class="text-secondary small mb-4">Learn the secrets to getting the best deals and avoiding peak
+                        <p class="text-secondary small mb-4">Learn the secrets to getting the best deals and avoiding
+                            peak
                             season crowds on your next trip...</p>
                         <a href="blog-details-4.html" class="fw-semibold text-primary">Read More <i
                                 class="bi bi-arrow-right"></i></a>
@@ -128,7 +140,8 @@
                         style="height: 200px; width: 100%; object-fit: cover;">
                     <div class="p-4">
                         <div class="small text-primary fw-bold mb-2">Wildlife</div>
-                        <h4 class="mb-3"><a href="blog-details-5.html" class="text-decoration-none text-reset">Marine Life
+                        <h4 class="mb-3"><a href="blog-details-5.html" class="text-decoration-none text-reset">Marine
+                                Life
                                 You Can Spot During Your Journey</a></h4>
                         <p class="text-secondary small mb-4">Discover the amazing sea creatures and birds you might
                             encounter on your ferry adventure...</p>
@@ -161,7 +174,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4">
-                    <h5>FerryBolt</h5>
+                    <div class="footer-brand mb-4">
+                        <i class="bi bi-tsunami"></i> FerryBolt
+                    </div>
                     <p class="text-secondary">Connecting people across the oceans with comfort and safety. Your trusted
                         partner in marine travel.</p>
                     <div class="d-flex gap-3 mt-4">
