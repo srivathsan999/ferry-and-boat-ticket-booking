@@ -135,7 +135,7 @@ img {
     border-bottom: 1px solid var(--border);
     padding: 1rem 0;
     transition: all 0.3s ease;
-    z-index: 1000;
+    z-index: 1050;
 }
 
 .navbar-brand,
@@ -633,6 +633,14 @@ html.dark-mode .social-icon.twitter:hover {
     .display-4 {
         font-size: 2.25rem;
     }
+
+    /* Disable sticky positioning on smaller screens to prevent overlap */
+    .sticky-top {
+        position: static !important;
+        top: auto !important;
+        z-index: 1;
+        /* Reset z-index */
+    }
 }
 
 /* Mobile Only (Under 576px) */
@@ -682,15 +690,7 @@ html.dark-mode .social-icon.twitter:hover {
 
     /* Timeline Adjustments for Mobile */
     /* Revert to smaller indentation to save screen space */
-    .timeline.ps-5 {
-        padding-left: 1.5rem !important;
-        /* approx ps-4 */
-    }
 
-    .timeline .rounded-circle {
-        left: -1.5rem !important;
-        /* Re-align with border */
-    }
 
     /* Route Detail Cards */
     .glass-card {
@@ -732,5 +732,182 @@ html.dark-mode .social-icon.twitter:hover {
     -webkit-line-clamp: 3;
     line-clamp: 3;
     -webkit-box-orient: vertical;
+
     overflow: hidden;
+}
+
+/* ==========================================
+   REFINED TIMELINE STYLES
+   ========================================== */
+
+.timeline-refined {
+    position: relative;
+    padding-left: 3.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Vertical Line */
+.timeline-refined::before {
+    content: '';
+    position: absolute;
+    left: 17px;
+    /* Center of 36px marker */
+    top: 5px;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--border);
+    z-index: 0;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 2.5rem;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+/* Marker Container */
+.timeline-marker {
+    position: absolute;
+    left: -3.5rem;
+    top: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--surface);
+    border: 2px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    z-index: 1;
+    box-shadow: 0 0 0 4px var(--surface);
+    /* separation from line */
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-marker {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 6px rgba(14, 165, 233, 0.1);
+}
+
+.timeline-marker i {
+    font-size: 1rem;
+}
+
+/* Marker Variants */
+.timeline-marker.start {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.timeline-marker.mid {
+    background-color: var(--surface);
+    color: var(--primary);
+}
+
+.timeline-marker.end {
+    background-color: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+/* Content Styling */
+.timeline-content {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-content {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-color: var(--primary);
+    transform: translateX(5px);
+}
+
+/* Arrow pointing to marker */
+.timeline-content::after {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 12px;
+    width: 10px;
+    height: 10px;
+    background: var(--surface);
+    border-left: 1px solid;
+    border-bottom: 1px solid;
+    border-color: inherit;
+    /* inherit from parent border logic */
+    transform: rotate(45deg);
+}
+
+.timeline-item:hover .timeline-content::after {
+    border-color: var(--primary);
+}
+
+.timeline-time {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    background: rgba(14, 165, 233, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+}
+
+.timeline-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 575.98px) {
+    .timeline-refined {
+        padding-left: 0;
+    }
+
+    .timeline-refined::before {
+        display: none;
+        /* Hide line on mobile for cleaner stack, or adjust */
+    }
+
+    .timeline-item {
+        margin-bottom: 1.5rem;
+        padding-bottom: 0;
+    }
+
+    .timeline-marker {
+        position: static;
+        margin-bottom: 0.75rem;
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+
+    .timeline-content {
+        margin-left: 0;
+    }
+
+    .timeline-content::after {
+        display: none;
+    }
+
+    /* Connect content to marker visually */
+    .timeline-head {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
 }

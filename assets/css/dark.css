@@ -135,3 +135,12 @@ html.dark-mode small {
 html.dark-mode .tracking-widest {
     color: var(--text-secondary);
 }
+
+/* Navbar Toggler Icon visibility in Dark Mode */
+html.dark-mode .navbar-toggler-icon {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+html.dark-mode .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.1);
+}

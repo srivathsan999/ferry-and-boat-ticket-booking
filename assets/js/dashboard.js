@@ -7,6 +7,16 @@ document.addEventListener('DOMContentLoaded', function () {
         navbarToggler.addEventListener('click', function () {
             sidebar.classList.toggle('show');
         });
+
+        // Close sidebar when a link is clicked (mobile)
+        const sidebarLinks = document.querySelectorAll('.sidebar-nav-link');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 992) { // 992px matches the CSS media query
+                    sidebar.classList.remove('show');
+                }
+            });
+        });
     }
 
     // 2. Generic Button Click Handlers (Simulation)
