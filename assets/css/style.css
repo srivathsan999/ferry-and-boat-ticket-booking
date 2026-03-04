@@ -213,7 +213,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(248, 250, 252, 0.9), rgba(248, 250, 252, 0.6));
+    background: linear-gradient(to right, rgba(248, 250, 252, 0.4), rgba(248, 250, 252, 0.2));
     z-index: 0;
 }
 
@@ -224,6 +224,21 @@ html.dark-mode .hero-overlay {
 .hero-content {
     position: relative;
     z-index: 1;
+}
+
+.hero-content h1,
+.hero-content .lead {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.hero-content h1 {
+    color: #1E293B !important;
+    font-weight: 700;
+}
+
+.hero-content .lead {
+    color: #334155 !important;
+    font-weight: 400;
 }
 
 /* Booking Widget */

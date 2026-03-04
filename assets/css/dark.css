@@ -144,3 +144,15 @@ html.dark-mode .navbar-toggler-icon {
 html.dark-mode .navbar-toggler {
     border-color: rgba(255, 255, 255, 0.1);
 }
+
+/* Input group text/icons in dark mode */
+html.dark-mode .input-group-text {
+    background-color: #1E293B;
+    border-color: #334155;
+    color: var(--text-secondary);
+}
+
+html.dark-mode .input-group-text.bg-transparent {
+    background-color: transparent !important;
+    color: var(--text-secondary) !important;
+}
