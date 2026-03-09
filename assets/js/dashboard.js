@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
             sidebar.classList.toggle('show');
         });
 
-        // Close sidebar when a link is clicked (mobile)
+        // Close sidebar when a link is clicked (mobile/tablet)
         const sidebarLinks = document.querySelectorAll('.sidebar-nav-link');
         sidebarLinks.forEach(link => {
             link.addEventListener('click', () => {
-                if (window.innerWidth < 992) { // 992px matches the CSS media query
+                if (window.innerWidth <= 1024) { // Match CSS media query max-width: 1024px
                     sidebar.classList.remove('show');
                 }
             });
